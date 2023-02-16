@@ -1,4 +1,4 @@
-package com.huangqitie.apipassenger;
+package com.huangqitie.serviceverificationcode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ApiPassengerApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ApiPassengerApplication.class);
-    }
+public class ServiceVerificationCodeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ServiceVerificationCodeApplication.class, args);
+	}
+
 }

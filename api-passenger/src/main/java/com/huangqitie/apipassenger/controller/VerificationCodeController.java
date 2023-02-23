@@ -1,9 +1,8 @@
 package com.huangqitie.apipassenger.controller;
 
-import com.huangqitie.apipassenger.request.VerificationCodeDTO;
 import com.huangqitie.apipassenger.service.VerificationCodeService;
 import com.huangqitie.internalcommon.constant.dto.ResponseResult;
-import javax.validation.constraints.Positive;
+import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

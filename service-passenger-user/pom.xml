@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.4.3.1</version>
+			<version>3.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -38,7 +38,11 @@
 			<artifactId>mybatis-plus-generator</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-
+		<!--nacos-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity-engine-core</artifactId>

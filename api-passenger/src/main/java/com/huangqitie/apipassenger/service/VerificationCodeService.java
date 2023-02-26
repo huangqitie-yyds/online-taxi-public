@@ -2,9 +2,11 @@ package com.huangqitie.apipassenger.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.utils.StringUtils;
+import com.huangqitie.apipassenger.remote.ServicePassengerUserClient;
 import com.huangqitie.apipassenger.remote.ServiceVerificationCodeClient;
 import com.huangqitie.internalcommon.constant.CommonStatus;
 import com.huangqitie.internalcommon.constant.dto.ResponseResult;
+import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
 import com.huangqitie.internalcommon.constant.response.NumberCodeResponse;
 import com.huangqitie.internalcommon.constant.response.TokenResponse;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +24,9 @@ public class VerificationCodeService {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private ServicePassengerUserClient servicePassengerUserClient;
 
     /**
      * 生成验证码
@@ -70,9 +75,10 @@ public class VerificationCodeService {
             return ResponseResult.fail(CommonStatus.VERIFICATION_CODE_ERROR.getCode(),
                     CommonStatus.VERIFICATION_CODE_ERROR.getValue());
         }
-        System.out.println("校验验证码");
         //判断原来是否有用户，并进行对应的处理
-        System.out.println("判断原来是否有用户，并进行对应的处理");
+        VerificationCodeDTO verificationCodeDTO = new VerificationCodeDTO();
+        verificationCodeDTO.setPassengerPhone(passengerPhone);
+        servicePassengerUserClient.loginOrRegister(verificationCodeDTO);
         //颁发令牌
         System.out.println("颁发令牌");
         TokenResponse tokenResponse = new TokenResponse();

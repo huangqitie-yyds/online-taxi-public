@@ -3,7 +3,6 @@ package com.huangqitie.controller;
 import com.huangqitie.internalcommon.constant.dto.ResponseResult;
 import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
 import com.huangqitie.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

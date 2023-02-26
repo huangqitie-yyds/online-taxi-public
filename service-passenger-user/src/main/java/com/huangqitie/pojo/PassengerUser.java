@@ -1,6 +1,7 @@
 package com.huangqitie.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.time.LocalDateTime;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -11,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author hqt
@@ -27,18 +28,18 @@ public class PassengerUser implements Serializable {
     private Long id;
 
     @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
+    private LocalDateTime createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
     private String passengerPhone;
 
     private String passengerName;
 
-    private Boolean passengerGender;
+    private Byte passengerGender;
 
-    private Boolean state;
+    private Byte state;
 
 
 }

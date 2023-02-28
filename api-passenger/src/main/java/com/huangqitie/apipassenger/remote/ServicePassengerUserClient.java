@@ -1,7 +1,7 @@
 package com.huangqitie.apipassenger.remote;
 
-import com.huangqitie.internalcommon.constant.dto.ResponseResult;
-import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
+import com.huangqitie.internalcommon.dto.ResponseResult;
+import com.huangqitie.internalcommon.request.VerificationCodeDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

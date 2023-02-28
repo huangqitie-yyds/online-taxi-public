@@ -1,14 +1,15 @@
 package com.huangqitie.apipassenger.service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.utils.StringUtils;
 import com.huangqitie.apipassenger.remote.ServicePassengerUserClient;
 import com.huangqitie.apipassenger.remote.ServiceVerificationCodeClient;
 import com.huangqitie.internalcommon.constant.CommonStatus;
-import com.huangqitie.internalcommon.constant.dto.ResponseResult;
-import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
-import com.huangqitie.internalcommon.constant.response.NumberCodeResponse;
-import com.huangqitie.internalcommon.constant.response.TokenResponse;
+import com.huangqitie.internalcommon.constant.IdentityStatus;
+import com.huangqitie.internalcommon.dto.ResponseResult;
+import com.huangqitie.internalcommon.request.VerificationCodeDTO;
+import com.huangqitie.internalcommon.response.NumberCodeResponse;
+import com.huangqitie.internalcommon.response.TokenResponse;
+import com.huangqitie.internalcommon.util.JwtUtils;
 import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -27,6 +28,7 @@ public class VerificationCodeService {
 
     @Autowired
     private ServicePassengerUserClient servicePassengerUserClient;
+
 
     /**
      * 生成验证码
@@ -80,9 +82,9 @@ public class VerificationCodeService {
         verificationCodeDTO.setPassengerPhone(passengerPhone);
         servicePassengerUserClient.loginOrRegister(verificationCodeDTO);
         //颁发令牌
-        System.out.println("颁发令牌");
+        String token = JwtUtils.generateToken(passengerPhone, IdentityStatus.PASSENGER_IDENTITY);
         TokenResponse tokenResponse = new TokenResponse();
-        tokenResponse.setToken("token string");
+        tokenResponse.setToken(token);
         return ResponseResult.success(tokenResponse);
     }
 }

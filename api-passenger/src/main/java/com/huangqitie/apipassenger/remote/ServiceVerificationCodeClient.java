@@ -1,7 +1,7 @@
 package com.huangqitie.apipassenger.remote;
 
-import com.huangqitie.internalcommon.constant.dto.ResponseResult;
-import com.huangqitie.internalcommon.constant.response.NumberCodeResponse;
+import com.huangqitie.internalcommon.dto.ResponseResult;
+import com.huangqitie.internalcommon.response.NumberCodeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.huangqitie.internalcommon.constant.dto;
+package com.huangqitie.internalcommon.dto;
 
 import com.huangqitie.internalcommon.constant.CommonStatus;
 import lombok.Data;

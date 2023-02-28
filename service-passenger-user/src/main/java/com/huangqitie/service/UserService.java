@@ -1,6 +1,6 @@
 package com.huangqitie.service;
 
-import com.huangqitie.internalcommon.constant.dto.ResponseResult;
+import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.mapper.PassengerUserMapper;
 import com.huangqitie.pojo.PassengerUser;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.huangqitie.internalcommon.constant.response;
+package com.huangqitie.internalcommon.response;
 
 import lombok.Data;
 

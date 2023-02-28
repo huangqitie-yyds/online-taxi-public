@@ -1,7 +1,7 @@
 package com.huangqitie.controller;
 
-import com.huangqitie.internalcommon.constant.dto.ResponseResult;
-import com.huangqitie.internalcommon.constant.request.VerificationCodeDTO;
+import com.huangqitie.internalcommon.dto.ResponseResult;
+import com.huangqitie.internalcommon.request.VerificationCodeDTO;
 import com.huangqitie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

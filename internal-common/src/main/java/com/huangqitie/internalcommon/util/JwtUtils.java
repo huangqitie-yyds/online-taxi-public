@@ -33,7 +33,9 @@ public class JwtUtils {
                     builder.withClaim(k, v);
                 }
         );
-        String token = builder.withExpiresAt(date).sign(Algorithm.HMAC256(SIGN));
+        //设置Token的过期时间
+//        builder.withExpiresAt(date);
+        String token = builder.sign(Algorithm.HMAC256(SIGN));
         return token;
     }
 

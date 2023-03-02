@@ -5,6 +5,7 @@ import com.alibaba.nacos.common.utils.StringUtils;
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.huangqitie.internalcommon.constant.TokenConstants;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.internalcommon.dto.TokenResult;
 import com.huangqitie.internalcommon.util.JwtUtils;
@@ -51,7 +52,7 @@ public class JwtInterceptor implements HandlerInterceptor {
             //拼接key
             String phone = tokenResult.getPhone();
             String identity = tokenResult.getIdentity();
-            String tokenKey = RedisPrefixUtils.generateTokenKey(phone, identity);
+            String tokenKey = RedisPrefixUtils.generateTokenKey(phone, identity, TokenConstants.ACCESS_TOKEN_TYPE);
             //从redis中取出token
             String tokenRedis = stringRedisTemplate.opsForValue().get(tokenKey);
             //验证传入的Token和Redis中存储的是否一致

@@ -2,9 +2,6 @@ package com.huangqitie.apipassenger.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.utils.StringUtils;
-import com.auth0.jwt.exceptions.AlgorithmMismatchException;
-import com.auth0.jwt.exceptions.SignatureVerificationException;
-import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.huangqitie.internalcommon.constant.TokenConstants;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.internalcommon.dto.TokenResult;
@@ -29,22 +26,7 @@ public class JwtInterceptor implements HandlerInterceptor {
         boolean result = true;
         String resultString = "";
         String token = request.getHeader("Authorization");
-        TokenResult tokenResult = null;
-        try {
-            tokenResult = JwtUtils.parseToken(token);
-        } catch (SignatureVerificationException e) {
-            result = false;
-            resultString = "token sign error";
-        } catch (TokenExpiredException e) {
-            result = false;
-            resultString = "token time out";
-        } catch (AlgorithmMismatchException e) {
-            result = false;
-            resultString = "token algorithm is match exception";
-        } catch (Exception e) {
-            result = false;
-            resultString = "token invalid";
-        }
+        TokenResult tokenResult = JwtUtils.checkToken(token);
         if (tokenResult == null) {
             result = false;
             resultString = "token invalid";
@@ -56,14 +38,9 @@ public class JwtInterceptor implements HandlerInterceptor {
             //从redis中取出token
             String tokenRedis = stringRedisTemplate.opsForValue().get(tokenKey);
             //验证传入的Token和Redis中存储的是否一致
-            if (StringUtils.isBlank(tokenRedis)) {
+            if (StringUtils.isBlank(tokenRedis) || !token.trim().equals(tokenRedis.trim())) {
                 result = false;
                 resultString = "token invalid";
-            } else {
-                if (!token.trim().equals(tokenRedis.trim())) {
-                    result = false;
-                    resultString = "token invalid";
-                }
             }
         }
 

@@ -53,6 +53,16 @@ public class JwtUtils {
         return tokenResult;
     }
 
+    public static TokenResult checkToken(String token) {
+        TokenResult tokenResult = null;
+        try {
+            tokenResult = JwtUtils.parseToken(token);
+        } catch (Exception e) {
+            return null;
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         String s = generateToken("18273932402", "1", "access");
         System.out.println(s);

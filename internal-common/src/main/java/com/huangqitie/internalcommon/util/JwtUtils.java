@@ -20,6 +20,8 @@ public class JwtUtils {
 
     private static final String JWT_TOKEN_TYPE = "tokenType";
 
+    private static final String JWT_TOKEN_TIME = "tokenTime";
+
     //生成Token
     public static String generateToken(String passengerPhone, String identity, String tokenType) {
         Map<String, String> map = new HashMap<>();
@@ -30,6 +32,7 @@ public class JwtUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, 1);
         Date date = calendar.getTime();
+        map.put(JWT_TOKEN_TIME, Calendar.getInstance().getTime().toString());
         JWTCreator.Builder builder = JWT.create();
         map.forEach(
                 (k, v) -> {
@@ -58,9 +61,9 @@ public class JwtUtils {
         try {
             tokenResult = JwtUtils.parseToken(token);
         } catch (Exception e) {
-            return null;
+
         }
-        return null;
+        return tokenResult;
     }
 
     public static void main(String[] args) {

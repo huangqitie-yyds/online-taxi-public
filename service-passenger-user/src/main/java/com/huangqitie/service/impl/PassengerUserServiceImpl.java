@@ -1,6 +1,6 @@
 package com.huangqitie.service.impl;
 
-import com.huangqitie.pojo.PassengerUser;
+import com.huangqitie.internalcommon.dto.PassengerUser;
 import com.huangqitie.mapper.PassengerUserMapper;
 import com.huangqitie.service.PassengerUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

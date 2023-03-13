@@ -1,7 +1,7 @@
 package com.huangqitie.service;
 
-import com.huangqitie.pojo.PassengerUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.huangqitie.internalcommon.dto.PassengerUser;
 
 /**
  * <p>

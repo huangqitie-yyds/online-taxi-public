@@ -1,7 +1,7 @@
 package com.huangqitie.mapper;
 
-import com.huangqitie.pojo.PassengerUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.huangqitie.internalcommon.dto.PassengerUser;
 
 /**
  * <p>

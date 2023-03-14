@@ -3,7 +3,6 @@ package com.huangqitie.internalcommon.dto;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>

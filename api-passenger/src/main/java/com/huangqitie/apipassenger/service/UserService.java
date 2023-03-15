@@ -1,27 +1,28 @@
 package com.huangqitie.apipassenger.service;
 
+import com.huangqitie.apipassenger.remote.ServicePassengerUserClient;
 import com.huangqitie.internalcommon.dto.PassengerUser;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.internalcommon.dto.TokenResult;
+import com.huangqitie.internalcommon.request.VerificationCodeDTO;
 import com.huangqitie.internalcommon.util.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 public class UserService {
 
+    @Autowired
+    private ServicePassengerUserClient servicePassengerUserClient;
+
     public ResponseResult getUserByAccessToken(String accessToken) {
         //解析accessToken，拿到手机号
         TokenResult tokenResult = JwtUtils.checkToken(accessToken);
         String phone = tokenResult.getPhone();
-        log.info("手机号:" + phone);
-        //根据手机号查询用户信息
-        log.info("accessToken:" + accessToken);
-        PassengerUser passengerUser = new PassengerUser();
-        passengerUser.setPassengerName("张三");
-        passengerUser.setProfilePhoto("头像");
-        return ResponseResult.success(passengerUser);
+        ResponseResult<PassengerUser> userByPhone = servicePassengerUserClient.getUserByPhone(phone);
+        return ResponseResult.success(userByPhone);
     }
 
 }

@@ -95,7 +95,6 @@ public class ForecastPriceService {
 
         BigDecimal priceBigDecimal = new BigDecimal(price);
         priceBigDecimal = priceBigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
-
         return priceBigDecimal.doubleValue();
     }
 

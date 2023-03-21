@@ -1,5 +1,6 @@
 package com.huangqitie.apipassenger.controller;
 
+import com.huangqitie.apipassenger.remote.ServicePriceClient;
 import com.huangqitie.apipassenger.service.ForecastPriceService;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.internalcommon.request.ForecastPriceDTO;

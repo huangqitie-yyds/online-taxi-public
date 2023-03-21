@@ -1,10 +1,15 @@
 package com.huangqitie.service;
 
+import com.huangqitie.internalcommon.dto.PriceRule;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import com.huangqitie.internalcommon.request.ForecastPriceDTO;
 import com.huangqitie.internalcommon.response.DirectionResponse;
 import com.huangqitie.internalcommon.response.ForecastPriceResponse;
+import com.huangqitie.mapper.PriceRuleMapper;
 import com.huangqitie.remote.ServiceMapClient;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +20,9 @@ public class ForecastPriceService {
 
     @Autowired
     private ServiceMapClient serviceMapClient;
+
+    @Autowired
+    private PriceRuleMapper priceRuleMapper;
 
     public ResponseResult forecastPrice(String depLongitude, String depLatitude, String destLongitude,
                                         String destLatitude) {
@@ -31,6 +39,12 @@ public class ForecastPriceService {
         Integer distance = direction.getData().getDistance();
         Integer duration = direction.getData().getDuration();
         log.info("距离是:" + distance + ",时长是:" + duration);
+        log.info("读取计价规则");
+        Map<String, Object> map = new HashMap<>();
+        map.put("city_code", 10010);
+        map.put("vehicle_type", 1);
+        List<PriceRule> priceRules = priceRuleMapper.selectByMap(map);
+        log.info("priceRules:" + priceRules);
         ForecastPriceResponse forecastPriceResponse = new ForecastPriceResponse();
         forecastPriceResponse.setPrice(12.345);
         return ResponseResult.success(forecastPriceResponse);

@@ -1,6 +1,5 @@
 package com.huangqitie.remote;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.huangqitie.internalcommon.constant.MapConfigConstant;
@@ -51,7 +50,6 @@ public class MapDirectionClient {
     private DirectionResponse parseDirectionBody(String directionBody) {
         DirectionResponse directionResponse = null;
         try {
-
             JSONObject result = JSONObject.parseObject(directionBody);
             if (result.containsKey(MapConfigConstant.STATUS)) {
                 int status = result.getIntValue(MapConfigConstant.STATUS);

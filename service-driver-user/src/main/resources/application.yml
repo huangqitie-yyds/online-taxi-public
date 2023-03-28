@@ -1,10 +1,9 @@
 server:
-  port: 8085
-
+  port: 8086
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/service-map?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/service-driver-user?characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
     password: 961489161
   cloud:
@@ -12,7 +11,4 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
   application:
-    name: service-map
-#自定义
-amap:
-  key: 364c59fda5ef4107ab4e1aaf8d0c1161
+    name: service-driver-user

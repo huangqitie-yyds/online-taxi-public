@@ -1,8 +1,7 @@
 package com.huangqitie.mapper;
 
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.huangqitie.internalcommon.dto.DriverUser;
+import com.huangqitie.internalcommon.dto.Car;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,10 +9,10 @@ import org.springframework.stereotype.Repository;
  *  Mapper 接口
  * </p>
  *
- * @author hqt
- * @since 2023-03-27
+ * @author 黄启贴
+ * @since 2023-03-30
  */
 @Repository
-public interface DriverUserMapper extends BaseMapper<DriverUser> {
+public interface CarMapper extends BaseMapper<Car> {
 
 }

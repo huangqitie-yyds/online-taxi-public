@@ -1,5 +1,7 @@
 package com.huangqitie.apiboss.remote;
 
+import com.huangqitie.internalcommon.dto.Car;
+import com.huangqitie.internalcommon.dto.DriverCarBindingRelationship;
 import com.huangqitie.internalcommon.dto.DriverUser;
 import com.huangqitie.internalcommon.dto.ResponseResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,4 +16,13 @@ public interface ServiceDriverUserClient {
 
     @PutMapping("/user")
     ResponseResult updateDriverUser(@RequestBody DriverUser driverUser);
+
+    @PostMapping("/car")
+    ResponseResult addCar(@RequestBody Car car);
+
+    @PostMapping("/driver-car-binding-relationship/bind")
+    ResponseResult bind(DriverCarBindingRelationship driverCarBindingRelationship);
+
+    @PostMapping("/driver-car-binding-relationship/unbind")
+    ResponseResult unbind(DriverCarBindingRelationship driverCarBindingRelationship);
 }

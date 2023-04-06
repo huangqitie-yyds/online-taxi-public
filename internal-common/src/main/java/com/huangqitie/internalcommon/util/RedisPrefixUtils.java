@@ -2,20 +2,10 @@ package com.huangqitie.internalcommon.util;
 
 public class RedisPrefixUtils {
     //乘客验证码的前缀
-    public static String verificationCodePrefix = "passenger-verification-code-";
+    public static String verificationCodePrefix = "verification-code-";
 
     //Token的前缀
     public static String tokenPrefix = "token-";
-
-    /**
-     * 根据手机号生成key
-     *
-     * @param passengerPhone
-     * @return
-     */
-    public static String generateKeyByPhone(String passengerPhone) {
-        return verificationCodePrefix + passengerPhone;
-    }
 
     /**
      * 根据手机号，生成key
@@ -23,8 +13,8 @@ public class RedisPrefixUtils {
      * @param identity
      * @return
      */
-    public static String generatorKeyByPhone(String phone, String identity){
-        return verificationCodePrefix + identity+ "-" + phone;
+    public static String generatorKeyByPhone(String phone, String identity) {
+        return verificationCodePrefix + identity + "-" + phone;
     }
 
     /**
@@ -35,7 +25,7 @@ public class RedisPrefixUtils {
      * @return
      */
     public static String generateTokenKey(String passengerPhone, String identity, String tokenType) {
-        return tokenPrefix + passengerPhone + "-" + identity+"-"+tokenType;
+        return tokenPrefix + passengerPhone + "-" + identity + "-" + tokenType;
     }
 
 }

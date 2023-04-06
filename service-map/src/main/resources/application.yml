@@ -16,3 +16,5 @@ spring:
 #自定义
 amap:
   key: 364c59fda5ef4107ab4e1aaf8d0c1161
+  #服务ID 名称:测试2
+  sid: 914598
